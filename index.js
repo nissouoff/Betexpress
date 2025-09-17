@@ -5,7 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors({
   origin: "*",   // adapte si tu veux limiter au frontend
@@ -183,3 +183,4 @@ app.post("/api/place-bet", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Backend lancé sur http://localhost:${PORT}`);
 });
+
