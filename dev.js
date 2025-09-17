@@ -69,13 +69,35 @@ db.serialize(() => {
       heur TEXT,
       pari TEXT,
       reponse1 TEXT,
-      reponse2 TEXT
+      reponse2 TEXT,
+      total_particip REAL DEFAULT 0,
+      total_reponse1 REAL DEFAULT 0,
+      total_reponse2 REAL DEFAULT 0
     )
   `, (err) => {
     if (err) {
       console.error("❌ Erreur création table betDays :", err.message);
     } else {
       console.log("✅ Table 'betDays' prête !");
+    }
+  });
+
+  // Nouvelle table "pari accepter"
+  db.run(`
+    CREATE TABLE IF NOT EXISTS accept_pari (
+      id_unique TEXT PRIMARY KEY,
+      id_user TEXT,
+      id_pari TEXT,
+      mis_pari REAL,
+      reponse_pari TEXT,
+      statu_pari TEXT,
+      date_pari TEXT
+    )
+  `, (err) => {
+    if (err) {
+      console.error("❌ Erreur création table accept_pari :", err.message);
+    } else {
+      console.log("✅ Table 'accept_pari' prête !");
     }
   });
 
