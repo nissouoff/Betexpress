@@ -5,11 +5,11 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001; // ✅ Render impose process.env.PORT
 
 app.use(cors({
-  origin: "*",   // adapte si tu veux limiter au frontend
-  methods: ["GET","POST"],
+  origin: "*",   // tu peux limiter à ton frontend si tu veux
+  methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"]
 }));
 app.use(express.json());
@@ -80,7 +80,7 @@ function saveUser(user, callback) {
   });
 }
 
-// === ROUTES EXISTANTES ===
+// === ROUTES ===
 
 // Ajout/connexion via Telegram
 app.post("/api/telegram-login", (req, res) => {
@@ -151,8 +151,9 @@ app.post("/api/place-bet", (req, res) => {
 
     // Débiter l’utilisateur
     const newSolde = wallet.wallet_total - mise;
-    db.run("UPDATE wallet_users SET wallet_total = ?, last_update = ? WHERE user_id = ?", 
-      [newSolde, dateNow, userId], 
+    db.run(
+      "UPDATE wallet_users SET wallet_total = ?, last_update = ? WHERE user_id = ?",
+      [newSolde, dateNow, userId],
       (err2) => {
         if (err2) {
           console.error("❌ Erreur update solde :", err2.message);
