@@ -1,0 +1,16 @@
+Pour ajouter des colone 
+ALTER TABLE betDays ADD COLUMN stat TEXT; 
+
+Pour suprimer un tablaux 
+DROP TABLE deposits
+
+ok merci mainant en passe aux chose serieuse 
+je veux quand en clik sur confimer la mise avant de la confimer en premier j'ai un backend node.js utilise une base de donner sqlite
+avant de confirmer la mise en vas recupere le id de telegram et en vas  dans la base de doner et en vas sur le tablaux wallet_users en cherche l'utilisitatur par son id dans le chemp user_id
+apres en vas verifie son sold qui se trouve dans le chemp wallet_total
+si son sold il est sufisant donc il peut participer si non en affiche un message a la place de Mise de 1$ placée sur : Oui en met sold insufisant veiller recharger votre solde 
+bon si son sold est sufisant apres l'accepte de de mis les donner d'utilisateur sont bien uploder dans un tablaux qui s'appele accept_pari
+et en met le id de user et le id de pari et la mis de pari et la reponse (reponse1 ou reponse2 pas le valeur de la reponse par exmple il chosi reponse1 en met reponse1) et en met aussi la date de pari et en met la statu = Accepter
+
+
+ok juste un peobleme mainent pourquoi le overview n'apparit pas avec un copte a rebour apres avoir cliker sur depositForm

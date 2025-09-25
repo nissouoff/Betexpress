@@ -1,0 +1,723 @@
+* {
+  user-select: none;
+  -webkit-user-select: none; /* Safari/Chrome */
+  -ms-user-select: none;     /* IE/Edge */
+  -moz-user-select: none;    /* Firefox */
+}
+
+/* === BODY & BACKGROUND === */
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0a3d62, #1e5799, #0d1f3f);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  display: flex;
+  flex-direction: column;
+  color: #f5f5f0; /* blanc cassé */
+  overflow-x: hidden;
+  justify-content: flex-start;
+   -webkit-touch-callout: none; /* iOS Safari */
+}
+
+/* Dégradé animé */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo flottant */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Effet doré brillant */
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* === HEADER GLASS STYLE === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 0 0 20px 20px;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  animation: fadeIn 1.5s ease forwards;
+
+   background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  
+}
+
+/* Header titre doré animé */
+.header h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffd700, #ffffff, #8b0000, #ffd700);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  letter-spacing: 1px;
+}
+
+/* Wallet iOS style */
+.wallet {
+  height: 19px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 12px;
+    border-radius: 14px;
+    color: #f5f5f0;
+    font-weight: 600;
+    font-size: 14px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+/* Icone + */
+#plus {
+  width: 15px;
+    height: 15px;
+    margin-right: 11px;
+    filter: drop-shadow(0px 0px 4px gold);
+}
+
+/* === BOTTOM NAV BAR === */
+.bottom  {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  border-radius: 20px 20px 0 0;
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.bottom div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f5f5f0;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bottom img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
+  transition: all 0.3s ease;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+   flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* scroll fluide sur mobile */
+}
+
+/* Hover et actif */
+.bottom div:hover,
+.bottom div.active {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+.bottom div:hover img,
+.bottom div.active img {
+  filter: drop-shadow(0 0 8px gold);
+}
+
+
+.bottom div:hover img,
+.bottom div.active img {
+  filter: drop-shadow(0 0 8px gold);
+}
+
+/* === LISTE DES PARIS === */
+/* === BET LIST === */
+#bet-list {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* === BET LIST RESPONSIVE === */
+#bet-list {
+  display: grid;
+  gap: 15px;
+  padding: 15px;
+  grid-template-columns: 1fr; /* une colonne pour mobile */
+}
+
+/* === CARD === */
+.bet-card {
+  background: rgba(20, 30, 60, 0.85); /* bleu nuit translucide */
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  color: #f5f5f0; /* texte clair */
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 20px;
+}
+
+.bet-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+/* === HEADER === */
+.bet-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #ffd700; /* accent doré */
+}
+
+.bet-time {
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+/* === PARI CONTENT === */
+.bet-pari {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(255, 215, 0, 0.05); /* léger fond doré translucide */
+  border-left: 4px solid #ffd700; /* accent doré */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #f5f5f0;
+  text-align: center;
+}
+
+/* === TEAMS === */
+.bet-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.bet-teams div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bet-teams img {
+  width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    padding: 7px;
+}
+
+.bet-teams span {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #b5b5b5; /* accent rouge */
+}
+
+/* === OPTIONS === */
+.bet-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.bet-btn {
+  width: 100%;
+  background: rgba(30, 80, 150, 0.9); /* bleu harmonisé avec le fond */
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #f5f5f0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.bet-btn:hover {
+  background: rgba(50, 120, 220, 0.95); /* bleu plus clair au hover */
+  transform: scale(1.03);
+}
+
+/* === MEDIA QUERIES POUR PETITS ÉCRANS === */
+@media screen and (min-width: 480px) {
+  #bet-list {
+    grid-template-columns: 1fr 1fr; /* 2 colonnes si écran > 480px */
+  }
+  .bet-teams img {
+    width: 50px;
+    height: 50px;
+  }
+  .notif-text {
+    font-size: 0.9rem;
+  }
+
+  .notif {
+    padding: 8px 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #bet-list {
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes si écran > 768px */
+  }
+  .bet-btn {
+    width: auto;
+    padding: 8px 12px;
+  }
+
+  .container {
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  .notif {
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .notif-text {
+    font-size: 0.95rem;
+  }
+
+  .notif-date {
+    font-size: 0.8rem;
+  }
+}
+
+
+.bet-question {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  color: #333;
+}
+
+/* === Overlay global === */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 25, 0.8);
+  backdrop-filter: blur(12px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 10px;
+}
+
+/* === Contenu Liquid Glass === */
+.overlay-content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Animation pop-in */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.overlay-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #FFD700, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overlay-content p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.chosen-answer span {
+  font-weight: bold;
+  color: #00eaff;
+}
+
+/* === Boutons === */
+.overlay-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.confirm-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.confirm-btn:hover {
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.cancel-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.05);
+}
+
+.loader-container {
+  display: none; /* caché par défaut */
+  text-align: center;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4caf50;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 10px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Container de l'historique */
+.hist {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+   flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* scroll fluide sur mobile */
+  display: none; /* caché par défaut */
+
+}
+
+/* Carte de pari accepté */
+.accepted-bet-card {
+  background: #1e1e2f;
+  color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.accepted-bet-card:hover {
+  transform: scale(1.02);
+}
+
+.accepted-bet-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+#accepted-qst {
+  padding: 10px;
+  background: rgba(255, 215, 0, 0.05); /* léger fond doré translucide */
+  border-left: 4px solid #ffd700; /* accent doré */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #f5f5f0;
+  text-align: center;
+}
+
+#accepted-mis {
+  padding: 10px;
+  background: rgba(255, 215, 0, 0.05); /* léger fond doré translucide */
+  border-left: 4px solid #ffd700; /* accent doré */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #f5f5f0;
+  text-align: center;
+}
+
+#accepted-stat {
+  padding: 10px;
+  background: rgba(0, 30, 255, 0.091);/* léger fond doré translucide */
+  border-left: 4px solid #0015ff; /* accent doré */
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  color: #f5f5f0;
+  text-align: center;
+}
+
+.accepted-bet-teams,
+.accepted-bet-pari p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Statut du pari */
+.accepted-bet-pari p:last-child {
+  font-weight: bold;
+  color: #f2f2f4; /* vert pour actif/gagné */
+}
+
+.list, .hist {
+  flex: 1;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.bet-card.blocked {
+  filter: brightness(0.9);
+  backdrop-filter: blur(6px); /* moins flou */
+  opacity: 0.85;
+  border: 2px dashed #ffd700;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.bet-card.blocked::after {
+  content: "LIVE";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+
+
+.toast-liquid {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-weight: bold;
+  z-index: 10000;
+  animation: slideDown 0.4s ease forwards;
+  display: none;
+}
+
+@keyframes slideDown {
+  from { transform: translate(-50%, -50px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.menu-user {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none; /* caché par défaut */
+  background: rgba(20, 30, 60, 0.92); /* bleu nuit un peu plus opaque */
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  color: #f5f5f0;
+  margin-top: 20px;
+}
+
+/* Bloc d’option */
+.menu-user div {
+  display: flex;
+  align-items: center;
+  background: rgba(39, 63, 136, 0.85);
+  border-radius: 13px;
+  border-left: 4px solid #ffd700;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+/* Icône */
+.menu-user img {
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+}
+
+/* Texte */
+.menu-user div p {
+  font-size: 15px;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Effet tactile au hover/clic */
+.menu-user div:hover {
+  background: rgba(50, 80, 170, 0.9);
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.55);
+}
+
+.menu-user div:active {
+  transform: scale(0.97);
+  background: rgba(255, 215, 0, 0.2); /* feedback doré tactile */
+}
+
+.container {
+  max-width: 600px;
+  padding: 15px;
+  height: 100%;
+  border-radius: 11px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* scroll fluide sur mobile */
+  display: felx;
+  flex-direction: column;
+  display: none;
+}
+
+/* ---- Liste des notifications ---- */
+.notif-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.notif {
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+  background: rgba(255, 215, 0, 0.05);
+  border-left: 4px solid #ffd700;  word-break: break-word; /* ✅ casse le texte sur mobile */
+  margin-bottom: 10px;
+  background: #171733;
+}
+
+.notif:hover {
+  transform: scale(1.01);
+}
+
+.notif-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.notif-date {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+#noti-activ, #hs-activ, #mn-activ {
+  display: none;
+}
+
+.noti.has-notif {
+  color: #ffd700;
+  transform: scale(1.1);
+  transition: transform 0.2s ease, color 0.2s ease;
+}

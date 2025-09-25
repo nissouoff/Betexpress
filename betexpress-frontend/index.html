@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetExpress - Accueil</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <img src="./ress/betexpress.png" alt="Logo BetExpress" class="logo">
+
+    <!-- Message de bienvenue -->
+    <h1 id="welcome" class="title">Bienvenue 👋</h1>
+
+    <!-- Description -->
+    <p class="slogan">Prêt à commencer ton pari express ? 🚀</p>
+  </div>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/config.js"></script>
+
+  <script>
+    // Récupérer le username sauvegardé en localStorage
+    const username = localStorage.getItem("username");
+
+    if (username) {
+      document.getElementById("welcome").textContent = `Bienvenue ${username} 👋`;
+    } else {
+      document.getElementById("welcome").textContent = "Bienvenue 👋";
+    }
+  </script>
+</body>
+</html>

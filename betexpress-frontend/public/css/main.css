@@ -1,0 +1,96 @@
+/* Dégradé bleu clair → bleu foncé en arrière-plan */
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #6ec1e4, #0a3d62);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Conteneur central */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 360px;
+  border: 1px solid rgba(255, 215, 0, 0.5); /* Bordure dorée */
+}
+
+/* Logo */
+.logo {
+  width: 90px;
+  margin-bottom: 20px;
+  border: 2px solid #ffd700; /* Contour doré */
+  border-radius: 50%;
+  padding: 5px;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Nom du jeu */
+.title {
+  font-size: 2.2rem;
+  margin: 10px 0;
+  background: linear-gradient(90deg, #ffd700, #fff8dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5); /* Effet doré lumineux */
+}
+
+/* Slogan */
+.slogan {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #f8f8f8;
+  font-style: italic;
+  text-shadow: 0 1px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Bouton connexion */
+.btn-connect {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ffd700, #e6b800);
+  color: #0a3d62;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
+              0 0 15px rgba(255, 215, 0, 0.6); /* Glow doré */
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn-connect:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6),
+              0 0 25px rgba(255, 215, 0, 0.9); /* Glow renforcé */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 25px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .slogan {
+    font-size: 0.9rem;
+  }
+
+  .btn-connect {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+}
