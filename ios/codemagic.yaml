@@ -1,0 +1,27 @@
+workflows:
+  ios-capacitor:
+    name: iOS Capacitor Build
+    environment:
+      xcode: latest
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          npm run build
+          npx cap sync ios
+      - name: Build iOS
+        script: |
+          cd ios
+          xcodebuild -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath $CM_BUILD_DIR/App.xcarchive archive
+    artifacts:
+      - ios/build/**/*.ipa
+      - $CM_BUILD_DIR/**/App.xcarchive
+    publishing:
+      email:
+        recipients:
+          - your@email.com
