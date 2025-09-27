@@ -1,0 +1,7 @@
+{
+	"appId": "com.example.myapp",
+	"appName": "myapp",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"packageClassList": []
+}
