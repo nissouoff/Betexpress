@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const db = require("./database");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // ✅ CORS config (une seule fois)
 const corsOptions = {
@@ -81,15 +81,16 @@ app.post("/api/depotusdt", (req, res) => {
 });
 
 
+
+
 app.post("/api/transactions", (req, res) => {
   const { destinataire, montant, prixusdt, totldz, etat } = req.body;
 
-  if (!montant || !prixusdt || !etat) {
-    return res.status(400).json({ error: "Champs obligatoires manquants." });
+  if (isNaN(montant) || isNaN(prixusdt) || !etat) {
+    return res.status(400).json({ error: "❌ Champs obligatoires manquants ou invalides." });
   }
 
-  // 1️⃣ Vérifier si le solde est suffisant
-  db.get(`SELECT total_usdt, total_vente FROM total WHERE id = 1`, (err, row) => {
+   db.get(`SELECT total_usdt, total_vente FROM total WHERE id = 1`, (err, row) => {
     if (err) {
       console.error("Erreur SELECT total:", err);
       return res.status(500).json({ error: err.message });
@@ -149,8 +150,8 @@ if (parseFloat(montant) > resteDispo) {
       }
     );
   });
+  
 });
-
 
 
 app.post("/api/transactions/split", (req, res) => {
